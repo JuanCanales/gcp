@@ -1,5 +1,5 @@
   
-resource "google_project_service" "service1" {
+resource "google_project_service" "api-iam" {
   project = var.project
   service = "iam.googleapis.com"
 
@@ -11,9 +11,22 @@ resource "google_project_service" "service1" {
   disable_on_destroy = true
 }
 
-resource "google_project_service" "service2" {
+resource "google_project_service" "api-cloudrun" {
   project = var.project
   service = "run.googleapis.com"
+
+  timeouts {
+    create = "30m"
+    update = "40m"
+  }
+
+  disable_on_destroy = true
+}
+
+
+resource "google_project_service" "api-storage" {
+  project = var.project
+  service = "storage.googleapis.com"
 
   timeouts {
     create = "30m"
