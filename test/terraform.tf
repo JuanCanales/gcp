@@ -1,14 +1,9 @@
-variable "project" {
-  type = string
-  default = "silicivalles-web-reservas"
+terraform {
+  required_providers {
+    google = {
+      version = "~> 6.0.0"
+    }
+  }
 }
 
-variable "region" {
-  type = string
-  default = "us-central1"
-}
 
-variable "credentials" {
-  type = string
-  default = "credentials.json"
-}
